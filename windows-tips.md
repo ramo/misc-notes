@@ -20,3 +20,21 @@ Using PowerShell
 ```
 ### Reference
 - https://serverfault.com/questions/867467/rdp-file-with-embedded-password-asks-for-password
+
+
+# MySQL 8
+## Resetting the root password
+- Stop the Mysql process (stopping the service from services.msc or killing it from TaskManager)
+- Create a init file with content similar to below and save the file to C:\mysql-init.txt
+```
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'MyNewPass';
+```
+- In the command prompt execute the below command.
+```
+mysqld --defaults-file="C:\\ProgramData\\MySQL\\MySQL Server 8.0\\my.ini" --init-file=C:\\mysql-init.txt
+```
+- Now the password is reset. You can delete the mysql-init.txt file and kill this mysqld invocation and start the mysqld via services.msc
+
+### Reference
+- https://dev.mysql.com/doc/mysql-windows-excerpt/8.0/en/resetting-permissions-windows.html
+
