@@ -38,3 +38,23 @@ mysqld --defaults-file="C:\\ProgramData\\MySQL\\MySQL Server 8.0\\my.ini" --init
 ### Reference
 - https://dev.mysql.com/doc/mysql-windows-excerpt/8.0/en/resetting-permissions-windows.html
 
+
+# Batch/CMD scripting
+## Dynamic Variable evaluation
+In a batch script if we need to form the variable dynamically and get its value
+```
+@ECHO off
+
+SET xyz_701=something
+SET errorCode=701
+
+SETLOCAL ENABLEDELAYEDEXPANSION
+FOR /l %%A IN (1,1,1) DO (
+for %%i in (!errorCode!) do (set msg=!xyz_%%i!)
+)
+echo %msg%
+endlocal
+```
+### Reference
+- https://ss64.com/nt/delayedexpansion.html
+- https://ss64.com/nt/for_l.html
