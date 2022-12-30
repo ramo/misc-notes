@@ -43,6 +43,17 @@ mysqld --defaults-file="C:\\ProgramData\\MySQL\\MySQL Server 8.0\\my.ini" --init
 ## Dynamic Variable evaluation
 In a batch script if we need to form the variable dynamically and get its value
 ```
+@echo off
+SET xyz_701=something
+SET errorCode=701
+
+SETLOCAL ENABLEDELAYEDEXPANSION
+set msg=!xyz_%errorCode%!
+echo %msg%
+endlocal
+```
+
+```
 @ECHO off
 
 SET xyz_701=something
