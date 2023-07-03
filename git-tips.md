@@ -7,6 +7,7 @@
 |system|`git config --system user.name "John Doe" `|
 - project overrides global and global overrides system.
 - project configurations are local and not synced with remote.
+- global is user level and stored in ~/.gitconfig
 ### Reference
 - https://stackoverflow.com/questions/8801729/is-it-possible-to-have-different-git-configuration-for-different-projects
 
@@ -42,3 +43,12 @@ fi
 ### Reference
 - https://stackoverflow.com/questions/3042437/how-to-change-the-commit-author-for-a-single-commit
 - https://web.archive.org/web/20200823163529/https://docs.github.com/en/github/using-git/changing-author-info#changing-the-git-history-of-your-repository-using-a-script
+
+## Stash all local commits to single commit
+```
+git reset $(git merge-base main $(git rev-parse --abbrev-ref HEAD)) 
+```
+>**Note**
+>This reset only seems to bring this branch to the point when it is created from main branch. Not to latest main.
+### Reference
+- https://stackoverflow.com/questions/25356810/git-how-to-squash-all-commits-on-branch
