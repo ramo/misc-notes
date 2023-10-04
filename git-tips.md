@@ -44,6 +44,13 @@ fi
 - https://stackoverflow.com/questions/3042437/how-to-change-the-commit-author-for-a-single-commit
 - https://web.archive.org/web/20200823163529/https://docs.github.com/en/github/using-git/changing-author-info#changing-the-git-history-of-your-repository-using-a-script
 
+## Stash last n commits together
+```
+git reset --soft HEAD~n
+```
+### Reference
+- https://stackoverflow.com/questions/5189560/how-do-i-squash-my-last-n-commits-together
+
 ## Stash all local commits to single commit
 ```
 git reset $(git merge-base main $(git rev-parse --abbrev-ref HEAD)) 
