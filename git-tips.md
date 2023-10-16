@@ -59,3 +59,15 @@ git reset $(git merge-base main $(git rev-parse --abbrev-ref HEAD))
 >This reset only seems to bring this branch to the point when it is created from main branch. Not to latest main.
 ### Reference
 - https://stackoverflow.com/questions/25356810/git-how-to-squash-all-commits-on-branch
+
+## Ignore changes to an already versioned file
+```
+git update-index --assume-unchanged <file>
+```
+### undo the change
+```
+git update-index --no-assume-unchanged <file>
+```
+### Refernce
+- https://stackoverflow.com/questions/4475457/add-all-files-to-a-commit-except-a-single-file
+
